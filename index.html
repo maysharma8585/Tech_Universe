@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Universe — Zero to Career Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080c14;
+  --bg2: #0d1320;
+  --bg3: #111827;
+  --surface: #151d2e;
+  --surface2: #1a2438;
+  --border: rgba(99,130,191,0.15);
+  --border2: rgba(99,130,191,0.08);
+  --accent: #4f8ef7;
+  --accent2: #7c3aed;
+  --accent3: #06d6a0;
+  --accent4: #ff6b35;
+  --accent5: #f59e0b;
+  --text: #e8edf5;
+  --text2: #8fa3c4;
+  --text3: #4a6080;
+  --glow: rgba(79,142,247,0.15);
+  --glow2: rgba(124,58,237,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ─── CUSTOM SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: rgba(8,12,20,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border2);
+}
+.nav-logo {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.2rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--text2); text-decoration: none; text-transform: uppercase;
+  transition: color 0.25s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; color: var(--accent3);
+  border: 1px solid var(--accent3); border-radius: 20px;
+  padding: 0.25rem 0.75rem; opacity: 0.8;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridPulse 8s ease-in-out infinite;
+}
+@keyframes gridPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+.hero-orb1 {
+  position: absolute; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(79,142,247,0.12), transparent 70%);
+  top: -100px; right: -100px; border-radius: 50%;
+  animation: float1 12s ease-in-out infinite;
+}
+.hero-orb2 {
+  position: absolute; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,58,237,0.1), transparent 70%);
+  bottom: -80px; left: -80px; border-radius: 50%;
+  animation: float2 10s ease-in-out infinite;
+}
+@keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,30px)} }
+@keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-20px)} }
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; color: var(--accent3);
+  border: 1px solid rgba(6,214,160,0.3); border-radius: 20px;
+  padding: 0.4rem 1rem; margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-tag::before { content: '▶'; font-size: 0.55rem; }
+
+.hero-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+.hero-title .line1 { display: block; color: var(--text); }
+.hero-title .line2 {
+  display: block;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: 1.1rem; color: var(--text2); max-width: 560px;
+  line-height: 1.7; margin-bottom: 3rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-cta {
+  display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; border: none; border-radius: 8px;
+  padding: 0.85rem 2rem; font-family: 'Syne', sans-serif;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(79,142,247,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(79,142,247,0.5); }
+.btn-secondary {
+  background: transparent; color: var(--text2);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.85rem 2rem; font-family: 'Syne', sans-serif;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 5rem;
+  animation: fadeUp 0.8s 0.6s ease both;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 2rem; font-weight: 700; color: var(--accent);
+}
+.stat-label { font-size: 0.72rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─── SECTION WRAPPER ─── */
+section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section-full { max-width: 100%; padding-left: 0; padding-right: 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.12em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 0.75rem; display: block;
+}
+.section-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: var(--text); margin-bottom: 1rem; line-height: 1.1;
+}
+.section-sub { font-size: 1rem; color: var(--text2); max-width: 600px; line-height: 1.7; }
+
+/* ─── DIVIDER ─── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0 2rem;
+}
+
+/* ─── WHAT IS TECH ─── */
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem; margin-top: 3rem;
+}
+.domain-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 12px; padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  position: relative; overflow: hidden;
+}
+.domain-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--card-glow, rgba(79,142,247,0.05));
+  opacity: 0; transition: opacity 0.3s;
+}
+.domain-card:hover { transform: translateY(-4px); border-color: var(--card-color, var(--accent)); }
+.domain-card:hover::before { opacity: 1; }
+.domain-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.domain-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem;
+  color: var(--card-color, var(--text));
+}
+.domain-desc { font-size: 0.78rem; color: var(--text2); line-height: 1.5; }
+.domain-badge {
+  display: inline-block; margin-top: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; padding: 0.2rem 0.6rem;
+  border-radius: 4px; border: 1px solid;
+  border-color: var(--card-color, var(--accent));
+  color: var(--card-color, var(--accent));
+}
+
+/* ─── FOUNDATIONS ─── */
+.foundations-bg {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
+}
+.foundations-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px; border: 1px solid var(--border2); border-radius: 16px;
+  overflow: hidden; margin-top: 3rem;
+}
+.foundation-item {
+  background: var(--surface); padding: 1.5rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.foundation-item:hover { background: var(--surface2); }
+.foundation-item h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.95rem; font-weight: 600; color: var(--text);
+  margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.foundation-item p { font-size: 0.78rem; color: var(--text2); line-height: 1.5; }
+.fi-icon { font-size: 1rem; }
+
+/* ─── PROGRAMMING FUNNEL ─── */
+.prog-section { position: relative; }
+.funnel-container { margin-top: 3rem; }
+.funnel-step {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 12px; padding: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.funnel-step::after {
+  content: ''; position: absolute;
+  left: 50%; bottom: -24px;
+  transform: translateX(-50%);
+  width: 2px; height: 24px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+}
+.funnel-step:last-child::after { display: none; }
+.funnel-step:hover { border-color: var(--accent); transform: scale(1.01); }
+.funnel-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.funnel-num {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; font-weight: 600; color: #fff; flex-shrink: 0;
+}
+.funnel-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.2rem; font-weight: 600;
+}
+.funnel-body { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; padding: 0.3rem 0.7rem;
+  border-radius: 6px; border: 1px solid var(--border);
+  color: var(--text2); background: var(--bg2);
+  transition: all 0.2s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,142,247,0.08); }
+
+.lang-cards { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.lang-card {
+  flex: 1; min-width: 140px;
+  background: var(--surface2); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 1.25rem;
+  text-align: center; cursor: pointer;
+  transition: all 0.25s;
+}
+.lang-card:hover { transform: translateY(-3px); }
+.lang-card.cpp { border-color: rgba(239,68,68,0.3); }
+.lang-card.cpp:hover { border-color: #ef4444; box-shadow: 0 0 20px rgba(239,68,68,0.15); }
+.lang-card.python { border-color: rgba(245,158,11,0.3); }
+.lang-card.python:hover { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245,158,11,0.15); }
+.lang-card.js { border-color: rgba(234,179,8,0.3); }
+.lang-card.js:hover { border-color: #eab308; box-shadow: 0 0 20px rgba(234,179,8,0.15); }
+.lang-card.java { border-color: rgba(249,115,22,0.3); }
+.lang-card.java:hover { border-color: #f97316; box-shadow: 0 0 20px rgba(249,115,22,0.15); }
+.lang-emoji { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.lang-name { font-family: 'Clash Display', sans-serif; font-size: 1rem; font-weight: 600; }
+.lang-use { font-size: 0.7rem; color: var(--text2); margin-top: 0.25rem; }
+
+.logic-banner {
+  background: linear-gradient(135deg, rgba(6,214,160,0.08), rgba(79,142,247,0.08));
+  border: 1px solid rgba(6,214,160,0.2); border-radius: 12px;
+  padding: 1.5rem 2rem; margin-top: 2rem; text-align: center;
+}
+.logic-banner p {
+  font-family: 'Instrument Serif', serif; font-style: italic;
+  font-size: 1.2rem; color: var(--accent3);
+}
+
+/* ─── CAREER PATHS ─── */
+.careers-bg { background: var(--bg2); }
+.paths-container { margin-top: 3rem; }
+.path-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 16px; margin-bottom: 1.5rem;
+  overflow: hidden; cursor: pointer;
+}
+.path-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 2rem;
+  transition: background 0.2s;
+}
+.path-header:hover { background: var(--surface2); }
+.path-left { display: flex; align-items: center; gap: 1rem; }
+.path-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.path-info h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem;
+}
+.path-info span { font-size: 0.75rem; color: var(--text2); }
+.path-meta { display: flex; gap: 0.75rem; align-items: center; }
+.diff-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; padding: 0.25rem 0.6rem;
+  border-radius: 4px; font-weight: 500;
+}
+.diff-easy { background: rgba(6,214,160,0.1); color: var(--accent3); border: 1px solid rgba(6,214,160,0.2); }
+.diff-med { background: rgba(245,158,11,0.1); color: var(--accent5); border: 1px solid rgba(245,158,11,0.2); }
+.diff-hard { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+.chevron { color: var(--text3); font-size: 0.85rem; transition: transform 0.3s; }
+.path-card.open .chevron { transform: rotate(180deg); }
+.path-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+  border-top: 0px solid var(--border2);
+}
+.path-card.open .path-body {
+  max-height: 800px;
+  border-top: 1px solid var(--border2);
+}
+.path-body-inner { padding: 2rem; }
+.path-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+.path-detail h5 {
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text3); margin-bottom: 0.6rem;
+}
+.path-detail ul { list-style: none; }
+.path-detail ul li {
+  font-size: 0.8rem; color: var(--text2);
+  padding: 0.15rem 0; display: flex; align-items: center; gap: 0.4rem;
+}
+.path-detail ul li::before { content: '→'; color: var(--accent); font-size: 0.7rem; }
+.salary-bar { margin-top: 1.5rem; }
+.salary-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+.salary-label span { font-size: 0.75rem; color: var(--text2); }
+.salary-label strong { font-size: 0.8rem; color: var(--accent3); }
+.bar-track {
+  height: 6px; background: var(--bg2); border-radius: 3px; overflow: hidden;
+}
+.bar-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  animation: barGrow 1s ease both;
+}
+@keyframes barGrow { from{width:0} }
+
+/* ─── VISUAL ROADMAP FLOW ─── */
+.flow-section { position: relative; }
+.flow-container {
+  margin-top: 3rem; position: relative;
+  padding: 2rem;
+}
+.flow-line {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 2px; transform: translateX(-50%);
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent3));
+  opacity: 0.3;
+}
+.flow-node {
+  display: flex; align-items: flex-start; gap: 2rem;
+  margin-bottom: 3rem; position: relative;
+}
+.flow-node:nth-child(even) { flex-direction: row-reverse; }
+.flow-node-dot {
+  position: absolute; left: 50%; top: 1.2rem;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+  box-shadow: 0 0 16px var(--accent);
+  z-index: 2;
+}
+.flow-node-card {
+  flex: 1; background: var(--surface);
+  border: 1px solid var(--border2); border-radius: 12px;
+  padding: 1.5rem;
+  max-width: calc(50% - 2rem);
+  transition: all 0.3s;
+}
+.flow-node-card:hover { border-color: var(--accent); transform: scale(1.02); }
+.flow-node-card h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.05rem; font-weight: 600;
+  margin-bottom: 0.4rem; color: var(--accent);
+}
+.flow-node-card p { font-size: 0.8rem; color: var(--text2); line-height: 1.6; }
+.flow-spacer { flex: 1; }
+
+/* ─── FRAMEWORKS ─── */
+.frameworks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+.framework-col { }
+.framework-col h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.2rem; margin-bottom: 1rem;
+}
+.fw-pair {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 0.75rem;
+}
+.fw-lang {
+  background: var(--bg2); border-radius: 6px; padding: 0.4rem 0.75rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--accent5);
+  white-space: nowrap;
+}
+.fw-arrow { color: var(--text3); font-size: 0.85rem; }
+.fw-framework {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--accent3);
+}
+.fw-desc { font-size: 0.72rem; color: var(--text3); margin-left: auto; }
+.not-banner {
+  grid-column: 1/-1;
+  background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(245,158,11,0.06));
+  border: 1px solid rgba(239,68,68,0.15); border-radius: 12px;
+  padding: 1.5rem; text-align: center;
+}
+.not-banner p { font-size: 0.9rem; color: var(--text2); }
+.not-banner strong { color: #ef4444; }
+
+/* ─── CAREER MODELS ─── */
+.models-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.model-card {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 14px; padding: 2rem;
+  transition: all 0.3s; cursor: pointer;
+}
+.model-card:hover { transform: translateY(-6px); }
+.model-card.job:hover { border-color: var(--accent); box-shadow: 0 20px 40px rgba(79,142,247,0.1); }
+.model-card.freelance:hover { border-color: var(--accent3); box-shadow: 0 20px 40px rgba(6,214,160,0.1); }
+.model-card.startup:hover { border-color: var(--accent4); box-shadow: 0 20px 40px rgba(255,107,53,0.1); }
+.model-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.model-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;
+}
+.model-pro, .model-con { font-size: 0.78rem; margin-bottom: 0.3rem; display: flex; align-items: flex-start; gap: 0.4rem; }
+.model-pro::before { content: '✓'; color: var(--accent3); flex-shrink: 0; }
+.model-con::before { content: '✕'; color: #ef4444; flex-shrink: 0; }
+.model-earn {
+  margin-top: 1.25rem; padding-top: 1rem;
+  border-top: 1px solid var(--border2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; color: var(--text3);
+}
+
+/* ─── MISTAKES ─── */
+.mistakes-bg { background: var(--bg2); }
+.mistakes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 3rem; }
+.mistake-card {
+  background: rgba(239,68,68,0.04);
+  border: 1px solid rgba(239,68,68,0.15);
+  border-radius: 12px; padding: 1.5rem;
+  transition: all 0.25s;
+}
+.mistake-card:hover { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.4); }
+.mistake-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.mistake-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.95rem; font-weight: 600; color: #ef4444; margin-bottom: 0.4rem;
+}
+.mistake-desc { font-size: 0.77rem; color: var(--text2); line-height: 1.5; }
+
+/* ─── WHAT GETS YOU HIRED ─── */
+.hired-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
+.hired-card {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 14px; padding: 2rem;
+}
+.hired-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 3rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.hired-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;
+}
+.hired-desc { font-size: 0.8rem; color: var(--text2); line-height: 1.6; }
+
+/* ─── OPEN SOURCE ─── */
+.os-features { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.os-feat {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 1.25rem;
+  transition: all 0.2s;
+}
+.os-feat:hover { border-color: var(--accent3); background: rgba(6,214,160,0.04); }
+.os-feat-icon { font-size: 1.3rem; margin-bottom: 0.6rem; }
+.os-feat h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; }
+.os-feat p { font-size: 0.75rem; color: var(--text2); line-height: 1.4; }
+
+/* ─── DSA SECTION ─── */
+.dsa-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+.dsa-visual { }
+.dsa-pyramid { margin: 0 auto; max-width: 380px; }
+.pyramid-level {
+  height: 52px; display: flex; align-items: center; justify-content: center;
+  border-radius: 8px; margin-bottom: 4px;
+  font-family: 'Clash Display', sans-serif; font-size: 0.85rem; font-weight: 600;
+  color: #fff; cursor: default;
+  transition: transform 0.2s;
+}
+.pyramid-level:hover { transform: scaleX(1.02); }
+.pyramid-level:nth-child(1) { width: 100%; background: linear-gradient(135deg, #ef4444, #dc2626); }
+.pyramid-level:nth-child(2) { width: 85%; margin: 0 auto 4px; background: linear-gradient(135deg, #f97316, #ea580c); }
+.pyramid-level:nth-child(3) { width: 70%; margin: 0 auto 4px; background: linear-gradient(135deg, #f59e0b, #d97706); }
+.pyramid-level:nth-child(4) { width: 55%; margin: 0 auto 4px; background: linear-gradient(135deg, #22c55e, #16a34a); }
+.pyramid-level:nth-child(5) { width: 40%; margin: 0 auto; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+.dsa-info ul { list-style: none; margin-top: 1rem; }
+.dsa-info ul li {
+  padding: 0.6rem 0; border-bottom: 1px solid var(--border2);
+  font-size: 0.82rem; color: var(--text2);
+  display: flex; align-items: flex-start; gap: 0.6rem;
+}
+.dsa-info ul li:last-child { border-bottom: none; }
+.dsa-info ul li span { color: var(--accent); flex-shrink: 0; }
+
+/* ─── NETWORKING ─── */
+.network-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.net-card {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 12px; padding: 1.25rem; text-align: center;
+  transition: all 0.25s; cursor: pointer;
+}
+.net-card:hover { transform: translateY(-4px); }
+.net-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.net-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
+.net-why { font-size: 0.72rem; color: var(--text2); line-height: 1.4; }
+
+/* ─── PORTFOLIO ─── */
+.portfolio-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+.port-item {
+  flex: 1; min-width: 160px;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 12px; padding: 1.25rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  transition: all 0.25s;
+}
+.port-item:hover { transform: translateY(-3px); border-color: var(--accent2); }
+.port-ico { font-size: 1.5rem; }
+.port-name { font-size: 0.88rem; font-weight: 600; }
+.port-tip { font-size: 0.72rem; color: var(--text2); line-height: 1.4; }
+
+/* ─── REMOTE REALITY ─── */
+.reality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border2); border-radius: 14px; overflow: hidden; margin-top: 2.5rem; }
+.reality-col { padding: 2rem; }
+.reality-col.expect { background: rgba(6,214,160,0.04); }
+.reality-col.real { background: rgba(239,68,68,0.04); }
+.reality-col h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+.reality-col.expect h3 { color: var(--accent3); }
+.reality-col.real h3 { color: #ef4444; }
+.reality-item { font-size: 0.8rem; color: var(--text2); padding: 0.5rem 0; border-bottom: 1px solid var(--border2); line-height: 1.5; }
+.reality-item:last-child { border-bottom: none; }
+
+/* ─── FINAL PATH ─── */
+.final-bg {
+  background: linear-gradient(135deg, rgba(79,142,247,0.05), rgba(124,58,237,0.05), rgba(6,214,160,0.05));
+}
+.final-path {
+  display: flex; gap: 0; margin-top: 3rem;
+  border: 1px solid var(--border2); border-radius: 16px; overflow: hidden;
+}
+.final-step {
+  flex: 1; padding: 2rem; position: relative;
+  border-right: 1px solid var(--border2); text-align: center;
+  transition: background 0.2s;
+}
+.final-step:last-child { border-right: none; }
+.final-step:hover { background: rgba(79,142,247,0.04); }
+.final-step-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  color: var(--text3); margin-bottom: 0.5rem; display: block;
+}
+.final-step-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.final-step h4 {
+  font-family: 'Clash Display', sans-serif; font-size: 0.95rem; font-weight: 600;
+  color: var(--accent); margin-bottom: 0.5rem;
+}
+.final-step p { font-size: 0.75rem; color: var(--text2); line-height: 1.5; }
+
+.closing-quote {
+  text-align: center; margin-top: 4rem; padding: 3rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; position: relative; overflow: hidden;
+}
+.closing-quote::before {
+  content: '"';
+  position: absolute; top: -20px; left: 30px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 12rem; color: var(--accent); opacity: 0.05; line-height: 1;
+}
+.closing-quote p {
+  font-family: 'Instrument Serif', serif; font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--text); line-height: 1.5; max-width: 800px; margin: 0 auto;
+}
+.closing-quote .author {
+  font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 0.75rem; color: var(--text3);
+  margin-top: 1.5rem; display: block;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border2);
+  padding: 2rem; text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; color: var(--text3);
+}
+
+/* ─── PROGRESS INDICATOR ─── */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 9999;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+  transform-origin: left; transform: scaleX(0);
+  transition: transform 0.1s;
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav { padding: 1rem; }
+  .nav-links { display: none; }
+  .hero-stats { gap: 1.5rem; }
+  .frameworks-grid { grid-template-columns: 1fr; }
+  .models-grid { grid-template-columns: 1fr; }
+  .hired-grid { grid-template-columns: 1fr; }
+  .dsa-container { grid-template-columns: 1fr; }
+  .reality-grid { grid-template-columns: 1fr; }
+  .final-path { flex-direction: column; }
+  .final-step { border-right: none; border-bottom: 1px solid var(--border2); }
+  .final-step:last-child { border-bottom: none; }
+  .flow-node, .flow-node:nth-child(even) { flex-direction: column; }
+  .flow-node-card { max-width: 100%; }
+  .flow-line { display: none; }
+  .flow-node-dot { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Tech Universe</div>
+  <ul class="nav-links">
+    <li><a href="#what">What is Tech</a></li>
+    <li><a href="#foundations">Foundations</a></li>
+    <li><a href="#programming">Programming</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#final">Get Hired</a></li>
+  </ul>
+  <div class="nav-badge">Zero → Career</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero section-full" style="max-width:100%">
+  <div class="hero-grid"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+
+  <div class="hero-tag">Complete Beginner Roadmap 2025</div>
+
+  <h1 class="hero-title">
+    <span class="line1">The Full Tech</span>
+    <span class="line2">Universe</span>
+  </h1>
+
+  <p class="hero-sub">
+    From zero to understanding the entire tech industry — every career path, every skill, every truth. No fluff. No fake motivation. Just the real roadmap.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#what" class="btn-primary">Start the Journey</a>
+    <a href="#careers" class="btn-secondary">Explore Careers</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">13+</div>
+      <div class="stat-label">Career Paths</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Skills Covered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Goal: You, Hired</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS TECH -->
+<div id="what"></div>
+<section class="reveal">
+  <span class="section-tag">// Section 01</span>
+  <h2 class="section-title">Tech is Not Just Coding</h2>
+  <p class="section-sub">The tech industry is a massive ecosystem. Here's every domain you can enter — and you only need to master one.</p>
+
+  <div class="domains-grid">
+    <div class="domain-card" style="--card-color:#4f8ef7;--card-glow:rgba(79,142,247,0.08)">
+      <div class="domain-icon">💻</div>
+      <div class="domain-name">Software Development</div>
+      <div class="domain-desc">Building apps, tools, and systems. The backbone of the tech world.</div>
+      <div class="domain-badge">Most Jobs</div>
+    </div>
+    <div class="domain-card" style="--card-color:#06d6a0;--card-glow:rgba(6,214,160,0.08)">
+      <div class="domain-icon">🌐</div>
+      <div class="domain-name">Web Development</div>
+      <div class="domain-desc">Building websites and web apps. Frontend, backend, or both.</div>
+      <div class="domain-badge">Beginner Friendly</div>
+    </div>
+    <div class="domain-card" style="--card-color:#7c3aed;--card-glow:rgba(124,58,237,0.08)">
+      <div class="domain-icon">📱</div>
+      <div class="domain-name">App Development</div>
+      <div class="domain-desc">iOS, Android, and cross-platform mobile applications.</div>
+      <div class="domain-badge">High Demand</div>
+    </div>
+    <div class="domain-card" style="--card-color:#f59e0b;--card-glow:rgba(245,158,11,0.08)">
+      <div class="domain-icon">🧠</div>
+      <div class="domain-name">AI / ML</div>
+      <div class="domain-desc">Teaching machines to learn, predict, and make decisions.</div>
+      <div class="domain-badge">Fastest Growing</div>
+    </div>
+    <div class="domain-card" style="--card-color:#ef4444;--card-glow:rgba(239,68,68,0.08)">
+      <div class="domain-icon">🔐</div>
+      <div class="domain-name">Cybersecurity</div>
+      <div class="domain-desc">Protecting systems, networks, and data from threats.</div>
+      <div class="domain-badge">Critical Field</div>
+    </div>
+    <div class="domain-card" style="--card-color:#06b6d4;--card-glow:rgba(6,182,212,0.08)">
+      <div class="domain-icon">☁️</div>
+      <div class="domain-name">Cloud & DevOps</div>
+      <div class="domain-desc">Deploying, scaling, and maintaining software in the cloud.</div>
+      <div class="domain-badge">High Salary</div>
+    </div>
+    <div class="domain-card" style="--card-color:#a855f7;--card-glow:rgba(168,85,247,0.08)">
+      <div class="domain-icon">📊</div>
+      <div class="domain-name">Data Science</div>
+      <div class="domain-desc">Finding insights in data. Stats + code + storytelling.</div>
+      <div class="domain-badge">Analytical</div>
+    </div>
+    <div class="domain-card" style="--card-color:#ec4899;--card-glow:rgba(236,72,153,0.08)">
+      <div class="domain-icon">🎨</div>
+      <div class="domain-name">UI / UX Design</div>
+      <div class="domain-desc">Designing beautiful, usable interfaces. Where art meets tech.</div>
+      <div class="domain-badge">Creative Path</div>
+    </div>
+    <div class="domain-card" style="--card-color:#84cc16;--card-glow:rgba(132,204,22,0.08)">
+      <div class="domain-icon">🧪</div>
+      <div class="domain-name">QA Testing</div>
+      <div class="domain-desc">Ensuring software works as expected. The safety net of tech.</div>
+      <div class="domain-badge">Underrated</div>
+    </div>
+    <div class="domain-card" style="--card-color:#ff6b35;--card-glow:rgba(255,107,53,0.08)">
+      <div class="domain-icon">🎮</div>
+      <div class="domain-name">Game Development</div>
+      <div class="domain-desc">Building interactive games. Art + physics + code combined.</div>
+      <div class="domain-badge">Passion-Driven</div>
+    </div>
+    <div class="domain-card" style="--card-color:#06d6a0;--card-glow:rgba(6,214,160,0.08)">
+      <div class="domain-icon">🔓</div>
+      <div class="domain-name">Open Source</div>
+      <div class="domain-desc">Contributing to public code projects. Your best portfolio move.</div>
+      <div class="domain-badge">Community</div>
+    </div>
+    <div class="domain-card" style="--card-color:#4f8ef7;--card-glow:rgba(79,142,247,0.08)">
+      <div class="domain-icon">💼</div>
+      <div class="domain-name">Freelancing</div>
+      <div class="domain-desc">Working independently for multiple clients. Freedom over salary.</div>
+      <div class="domain-badge">Flexible</div>
+    </div>
+    <div class="domain-card" style="--card-color:#f59e0b;--card-glow:rgba(245,158,11,0.08)">
+      <div class="domain-icon">🚀</div>
+      <div class="domain-name">Startups</div>
+      <div class="domain-desc">Building products from scratch. High risk, high reward, fast learning.</div>
+      <div class="domain-badge">Entrepreneurial</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOUNDATIONS -->
+<div id="foundations"></div>
+<div class="foundations-bg">
+<section class="reveal" style="max-width:1200px;margin:0 auto;padding:6rem 2rem">
+  <span class="section-tag">// Section 02</span>
+  <h2 class="section-title">Core Foundation<br>Everyone Needs</h2>
+  <p class="section-sub">Before picking a career path, every tech professional must know these fundamentals. No shortcuts here.</p>
+
+  <div class="foundations-grid">
+    <div class="foundation-item"><h4><span class="fi-icon">🖥️</span> Computer Basics</h4><p>Understand how a computer works, input/output, file systems, and basic operations.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">⚙️</span> CPU / RAM / Storage</h4><p>Processing power, memory, and storage — the holy trinity of hardware performance.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🪟</span> OS Basics</h4><p>How Windows, macOS, and Linux manage your hardware and run programs.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🌍</span> Internet Basics</h4><p>How data travels globally. Packets, routers, protocols — the web's infrastructure.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🔍</span> Browser Working</h4><p>What happens when you type a URL. Rendering engines, JavaScript engines, DOM.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">⚡</span> Client vs Server</h4><p>The fundamental split: the device asking (client) vs the machine answering (server).</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🗺️</span> DNS</h4><p>Domain Name System — the internet's phone book. How names become IP addresses.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🏠</span> Hosting</h4><p>Where your website lives. Servers, CDNs, VPS, shared hosting, and cloud.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🗄️</span> Databases</h4><p>Storing and retrieving structured data. SQL vs NoSQL, rows vs documents.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🔌</span> APIs</h4><p>How software talks to other software. REST, JSON, requests, and responses.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🐙</span> Git & GitHub</h4><p>Version control. Track changes, collaborate, and never lose your code again.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">⬛</span> Command Line</h4><p>The power interface of tech. Navigate, install, and control your system via text.</p></div>
+    <div class="foundation-item"><h4><span class="fi-icon">🧩</span> Problem Solving Mindset</h4><p>Breaking big problems into small ones. The most important skill in all of tech.</p></div>
+  </div>
+</section>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROGRAMMING -->
+<div id="programming"></div>
+<section class="prog-section reveal">
+  <span class="section-tag">// Section 03</span>
+  <h2 class="section-title">Programming<br>Fundamentals</h2>
+  <p class="section-sub">Every programmer starts here. These concepts exist in every language. Master logic, not syntax.</p>
+
+  <div class="funnel-container">
+    <div class="funnel-step">
+      <div class="funnel-header">
+        <div class="funnel-num">01</div>
+        <div class="funnel-title">Core Concepts</div>
+      </div>
+      <div class="funnel-body">
+        <div class="chip">Variables</div>
+        <div class="chip">Loops</div>
+        <div class="chip">Conditions (if/else)</div>
+        <div class="chip">Functions</div>
+        <div class="chip">Arrays</div>
+        <div class="chip">Objects</div>
+      </div>
+    </div>
+
+    <div class="funnel-step">
+      <div class="funnel-header">
+        <div class="funnel-num">02</div>
+        <div class="funnel-title">Intermediate Concepts</div>
+      </div>
+      <div class="funnel-body">
+        <div class="chip">OOP Basics</div>
+        <div class="chip">Recursion</div>
+        <div class="chip">Error Handling</div>
+        <div class="chip">File I/O</div>
+        <div class="chip">Modules</div>
+        <div class="chip">Debugging</div>
+      </div>
+    </div>
+
+    <div class="funnel-step">
+      <div class="funnel-header">
+        <div class="funnel-num">03</div>
+        <div class="funnel-title">DSA Basics</div>
+      </div>
+      <div class="funnel-body">
+        <div class="chip">Arrays & Strings</div>
+        <div class="chip">Stacks & Queues</div>
+        <div class="chip">Linked Lists</div>
+        <div class="chip">Trees & Graphs</div>
+        <div class="chip">Sorting Algorithms</div>
+        <div class="chip">Big O Notation</div>
+        <div class="chip">Hash Maps</div>
+        <div class="chip">Binary Search</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Clash Display',sans-serif;font-size:1.3rem;margin:3rem 0 1.5rem;font-weight:600">Pick Your First Language</h3>
+  <div class="lang-cards">
+    <div class="lang-card cpp">
+      <div class="lang-emoji">⚡</div>
+      <div class="lang-name">C++</div>
+      <div class="lang-use">Performance • Systems • Competitive</div>
+    </div>
+    <div class="lang-card python">
+      <div class="lang-emoji">🐍</div>
+      <div class="lang-name">Python</div>
+      <div class="lang-use">AI/ML • Data • Beginners</div>
+    </div>
+    <div class="lang-card js">
+      <div class="lang-emoji">⭐</div>
+      <div class="lang-name">JavaScript</div>
+      <div class="lang-use">Web • Frontend • Full Stack</div>
+    </div>
+    <div class="lang-card java">
+      <div class="lang-emoji">☕</div>
+      <div class="lang-name">Java</div>
+      <div class="lang-use">Enterprise • Android • Backend</div>
+    </div>
+  </div>
+
+  <div class="logic-banner">
+    <p>"Language choice matters less than logical thinking. A good programmer can learn any language in weeks. Logic takes months to build."</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAREER PATHS -->
+<div id="careers"></div>
+<div class="careers-bg">
+<section style="max-width:1200px;margin:0 auto;padding:6rem 2rem" class="reveal">
+  <span class="section-tag">// Section 04</span>
+  <h2 class="section-title">Main Career Paths<br>in Tech</h2>
+  <p class="section-sub">Click each path to explore what it takes, what you'll earn, and how beginner-friendly it is.</p>
+
+  <div class="paths-container" id="paths">
+
+    <!-- WEB DEV -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(79,142,247,0.1)">🌐</div>
+          <div class="path-info">
+            <h3>Web Development</h3>
+            <span>Frontend · Backend · Full Stack — Build the internet</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-easy">⭐ Easiest Entry</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>React / Vue</li>
+                <li>Node.js (backend)</li>
+                <li>REST APIs</li>
+                <li>Git & GitHub</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>VS Code</li>
+                <li>React, Next.js</li>
+                <li>Express, Django</li>
+                <li>PostgreSQL, MongoDB</li>
+                <li>Vercel, Netlify</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Sub-Paths</h5>
+              <ul>
+                <li>Frontend (UI/visual)</li>
+                <li>Backend (logic/server)</li>
+                <li>Full Stack (both)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹4L – ₹40L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP DEV -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(124,58,237,0.1)">📱</div>
+          <div class="path-info">
+            <h3>App Development</h3>
+            <span>iOS · Android · Cross-platform — Build for billions of phones</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-med">⚡ Moderate</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Kotlin (Android)</li>
+                <li>Swift (iOS)</li>
+                <li>Flutter / React Native</li>
+                <li>State Management</li>
+                <li>Firebase / Backend</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>Android Studio</li>
+                <li>Xcode</li>
+                <li>Flutter SDK</li>
+                <li>Firebase</li>
+                <li>App Store Connect</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹5L – ₹45L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI/ML -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(245,158,11,0.1)">🧠</div>
+          <div class="path-info">
+            <h3>AI / Machine Learning</h3>
+            <span>The hottest field in tech right now — high barrier, higher reward</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-hard">🔥 Advanced</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Python (strong)</li>
+                <li>Mathematics & Stats</li>
+                <li>Linear Algebra</li>
+                <li>ML Algorithms</li>
+                <li>Neural Networks</li>
+                <li>Data Preprocessing</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>TensorFlow / PyTorch</li>
+                <li>Scikit-learn</li>
+                <li>Pandas, NumPy</li>
+                <li>Jupyter Notebook</li>
+                <li>Hugging Face</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹8L – ₹80L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CYBERSECURITY -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(239,68,68,0.1)">🔐</div>
+          <div class="path-info">
+            <h3>Cybersecurity</h3>
+            <span>Ethical hacking · Defense · Compliance — Protect the digital world</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-hard">🔥 Complex</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Networking fundamentals</li>
+                <li>Linux mastery</li>
+                <li>Ethical Hacking</li>
+                <li>Cryptography</li>
+                <li>Penetration Testing</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>Kali Linux</li>
+                <li>Wireshark</li>
+                <li>Burp Suite</li>
+                <li>Metasploit</li>
+                <li>Nmap</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹6L – ₹60L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOUD/DEVOPS -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(6,182,212,0.1)">☁️</div>
+          <div class="path-info">
+            <h3>Cloud & DevOps</h3>
+            <span>AWS · Azure · Docker · CI/CD — The engine room of modern tech</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-med">⚡ Technical</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Linux & Bash</li>
+                <li>Docker & Kubernetes</li>
+                <li>CI/CD Pipelines</li>
+                <li>AWS / GCP / Azure</li>
+                <li>Infrastructure as Code</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>Jenkins, GitHub Actions</li>
+                <li>Terraform</li>
+                <li>Ansible</li>
+                <li>Prometheus, Grafana</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹7L – ₹70L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATA SCIENCE -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(168,85,247,0.1)">📊</div>
+          <div class="path-info">
+            <h3>Data Science</h3>
+            <span>Analytics · Visualization · Insight — Turn data into decisions</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-med">⚡ Analytical</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Python & R</li>
+                <li>Statistics</li>
+                <li>SQL (strong)</li>
+                <li>Data Visualization</li>
+                <li>Business Acumen</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>Pandas, Matplotlib</li>
+                <li>Tableau, Power BI</li>
+                <li>SQL, BigQuery</li>
+                <li>Excel (yes, really)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹6L – ₹55L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UI/UX -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(236,72,153,0.1)">🎨</div>
+          <div class="path-info">
+            <h3>UI / UX Design</h3>
+            <span>Design · Research · Prototyping — Make tech beautiful & usable</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-easy">⭐ Creative</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Design Principles</li>
+                <li>User Research</li>
+                <li>Wireframing</li>
+                <li>Prototyping</li>
+                <li>Usability Testing</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>Figma (industry standard)</li>
+                <li>Adobe XD</li>
+                <li>Miro</li>
+                <li>Notion</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹4L – ₹35L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QA -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(132,204,22,0.1)">🧪</div>
+          <div class="path-info">
+            <h3>QA Testing</h3>
+            <span>Manual · Automation · Performance — Be the last line of defense</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-easy">⭐ Underrated</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>Test Case Writing</li>
+                <li>Bug Reporting</li>
+                <li>Selenium / Playwright</li>
+                <li>API Testing</li>
+                <li>Python (automation)</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>JIRA</li>
+                <li>Postman</li>
+                <li>Selenium</li>
+                <li>TestRail</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹3.5L – ₹28L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME DEV -->
+    <div class="path-card" onclick="togglePath(this)">
+      <div class="path-header">
+        <div class="path-left">
+          <div class="path-icon" style="background:rgba(255,107,53,0.1)">🎮</div>
+          <div class="path-info">
+            <h3>Game Development</h3>
+            <span>Unity · Unreal · Indie — Build worlds from scratch</span>
+          </div>
+        </div>
+        <div class="path-meta">
+          <div class="diff-badge diff-hard">🔥 Challenging</div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="path-body-inner">
+          <div class="path-grid">
+            <div class="path-detail">
+              <h5>Skills Needed</h5>
+              <ul>
+                <li>C# or C++</li>
+                <li>Physics & Math</li>
+                <li>Game Design Theory</li>
+                <li>3D Modeling basics</li>
+                <li>Performance optimization</li>
+              </ul>
+            </div>
+            <div class="path-detail">
+              <h5>Tools Used</h5>
+              <ul>
+                <li>Unity (C#)</li>
+                <li>Unreal Engine (C++)</li>
+                <li>Godot</li>
+                <li>Blender</li>
+              </ul>
+            </div>
+          </div>
+          <div class="salary-bar">
+            <div class="salary-label"><span>Salary Range (India)</span><strong>₹3L – ₹30L/year</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="divider"></div>
+
+<!-- FRAMEWORKS -->
+<section class="reveal">
+  <span class="section-tag">// Section 05</span>
+  <h2 class="section-title">Frameworks ≠ Languages</h2>
+  <p class="section-sub">One of the biggest beginner confusions. A framework is a tool built on top of a language — it's not a language itself.</p>
+
+  <div class="frameworks-grid">
+    <div class="framework-col">
+      <h3 style="color:var(--accent)">JavaScript Ecosystem</h3>
+      <div class="fw-pair">
+        <div class="fw-lang">JavaScript</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">React</div>
+        <div class="fw-desc">Frontend UI</div>
+      </div>
+      <div class="fw-pair">
+        <div class="fw-lang">JavaScript</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">Next.js</div>
+        <div class="fw-desc">Full Stack</div>
+      </div>
+      <div class="fw-pair">
+        <div class="fw-lang">JavaScript</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">Vue.js</div>
+        <div class="fw-desc">Frontend UI</div>
+      </div>
+      <div class="fw-pair">
+        <div class="fw-lang">JavaScript</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">Express.js</div>
+        <div class="fw-desc">Backend</div>
+      </div>
+    </div>
+    <div class="framework-col">
+      <h3 style="color:var(--accent5)">Python Ecosystem</h3>
+      <div class="fw-pair">
+        <div class="fw-lang">Python</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">Django</div>
+        <div class="fw-desc">Full Stack Web</div>
+      </div>
+      <div class="fw-pair">
+        <div class="fw-lang">Python</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">FastAPI</div>
+        <div class="fw-desc">REST APIs</div>
+      </div>
+      <div class="fw-pair">
+        <div class="fw-lang">Python</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">TensorFlow</div>
+        <div class="fw-desc">AI / ML</div>
+      </div>
+      <div class="fw-pair">
+        <div class="fw-lang">Python</div>
+        <div class="fw-arrow">→</div>
+        <div class="fw-framework">Flask</div>
+        <div class="fw-desc">Lightweight API</div>
+      </div>
+    </div>
+    <div class="not-banner">
+      <p><strong>⚠️ Don't learn React before learning JavaScript.</strong> The framework is built on the language. Learn the base first, then the tools on top. Framework jobs require language mastery.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAREER MODELS -->
+<section class="reveal">
+  <span class="section-tag">// Section 06</span>
+  <h2 class="section-title">Three Ways to<br>Earn in Tech</h2>
+  <p class="section-sub">Each has different risk, reward, and lifestyle. There's no best choice — only the one that suits you.</p>
+
+  <div class="models-grid">
+    <div class="model-card job">
+      <div class="model-icon">🏢</div>
+      <div class="model-name">Job</div>
+      <div class="model-pro">Fixed monthly salary</div>
+      <div class="model-pro">Benefits & stability</div>
+      <div class="model-pro">Team learning</div>
+      <div class="model-pro">Structured growth</div>
+      <div class="model-con">Less creative freedom</div>
+      <div class="model-con">Slower income ceiling</div>
+      <div class="model-earn">💡 Earn: ₹4L – ₹80L/year depending on skill & company</div>
+    </div>
+    <div class="model-card freelance">
+      <div class="model-icon">🧑‍💻</div>
+      <div class="model-name">Freelancing</div>
+      <div class="model-pro">Work from anywhere</div>
+      <div class="model-pro">Set your own rates</div>
+      <div class="model-pro">Unlimited income potential</div>
+      <div class="model-con">Income is inconsistent</div>
+      <div class="model-con">You handle everything</div>
+      <div class="model-con">No benefits / insurance</div>
+      <div class="model-earn">💡 Earn: $5 – $150/hr depending on reputation</div>
+    </div>
+    <div class="model-card startup">
+      <div class="model-icon">🚀</div>
+      <div class="model-name">Startup</div>
+      <div class="model-pro">Equity / ownership</div>
+      <div class="model-pro">Build something yours</div>
+      <div class="model-pro">Explosive learning</div>
+      <div class="model-con">High risk of failure</div>
+      <div class="model-con">Long hours, low pay early</div>
+      <div class="model-con">Mentally demanding</div>
+      <div class="model-earn">💡 Earn: ₹0 to crores — high variance</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPEN SOURCE -->
+<section class="reveal">
+  <span class="section-tag">// Section 07</span>
+  <h2 class="section-title">Why Open Source<br>Changes Everything</h2>
+  <p class="section-sub">Contributing to open source projects is one of the fastest ways to level up, build your reputation, and get hired without a degree.</p>
+
+  <div class="os-features">
+    <div class="os-feat">
+      <div class="os-feat-icon">📁</div>
+      <h4>Real-World Projects</h4>
+      <p>Work on actual production codebases used by millions. Not just tutorials.</p>
+    </div>
+    <div class="os-feat">
+      <div class="os-feat-icon">🤝</div>
+      <h4>Networking</h4>
+      <p>Meet top developers worldwide. Collaborating is the best interview prep.</p>
+    </div>
+    <div class="os-feat">
+      <div class="os-feat-icon">📄</div>
+      <h4>Resume Gold</h4>
+      <p>A GitHub with quality contributions speaks louder than a degree on paper.</p>
+    </div>
+    <div class="os-feat">
+      <div class="os-feat-icon">🐙</div>
+      <h4>GitHub Presence</h4>
+      <p>Green contribution graph = proof of consistency. Recruiters check this first.</p>
+    </div>
+    <div class="os-feat">
+      <div class="os-feat-icon">🔍</div>
+      <h4>Code Review</h4>
+      <p>Other developers review your code. Free mentorship from the best in the world.</p>
+    </div>
+    <div class="os-feat">
+      <div class="os-feat-icon">🌱</div>
+      <h4>Skill Growth</h4>
+      <p>Reading and contributing to mature codebases grows you 10x faster than courses.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REMOTE WORK -->
+<section class="reveal">
+  <span class="section-tag">// Section 08</span>
+  <h2 class="section-title">Remote Work Reality</h2>
+  <p class="section-sub">Everyone talks about working from a beach. Here's what it actually looks like.</p>
+
+  <div class="reality-grid">
+    <div class="reality-col expect">
+      <h3>💭 Expectation</h3>
+      <div class="reality-item">Work from Goa / Bali / anywhere</div>
+      <div class="reality-item">4-hour work days</div>
+      <div class="reality-item">No meetings, full freedom</div>
+      <div class="reality-item">Instant 100k salary remote jobs</div>
+      <div class="reality-item">Boss-free life immediately</div>
+    </div>
+    <div class="reality-col real">
+      <h3>⚡ Reality</h3>
+      <div class="reality-item">Remote jobs require 2–5 years of proven skill first</div>
+      <div class="reality-item">Timezone overlap calls still happen daily</div>
+      <div class="reality-item">Discipline is 10x harder without an office</div>
+      <div class="reality-item">Competition is global — you're fighting world-class talent</div>
+      <div class="reality-item">Most beginners should start with in-person or hybrid roles</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DSA IMPORTANCE -->
+<section class="reveal">
+  <span class="section-tag">// Section 09</span>
+  <h2 class="section-title">Why DSA Matters<br>More Than You Think</h2>
+  <p class="section-sub">Data Structures & Algorithms is the language of coding interviews at every top company. Skip it and you skip the opportunity.</p>
+
+  <div class="dsa-container">
+    <div class="dsa-visual">
+      <div class="dsa-pyramid">
+        <div class="pyramid-level">Advanced: DP, Graphs, Trees</div>
+        <div class="pyramid-level">Intermediate: Sorting, Searching</div>
+        <div class="pyramid-level">Core: Stacks, Queues, HashMaps</div>
+        <div class="pyramid-level">Foundation: Arrays, Strings</div>
+        <div class="pyramid-level">Start: Big O Notation</div>
+      </div>
+      <p style="text-align:center;font-size:0.72rem;color:var(--text3);margin-top:1rem;font-family:'JetBrains Mono',monospace">DSA Mastery Pyramid — build from the base</p>
+    </div>
+    <div class="dsa-info">
+      <h3 style="font-family:'Clash Display',sans-serif;font-size:1.2rem;margin-bottom:1rem">Why Companies Test DSA</h3>
+      <ul>
+        <li><span>→</span>Google, Amazon, Microsoft, Flipkart all require it</li>
+        <li><span>→</span>Tests logical thinking under pressure</li>
+        <li><span>→</span>Separates coders from programmers</li>
+        <li><span>→</span>LeetCode is the standard prep platform</li>
+        <li><span>→</span>Even for web dev roles at top companies</li>
+        <li><span>→</span>Minimum 150–300 problems for decent prep</li>
+        <li><span>→</span>Consistent 45–90 min/day for 6 months = competitive</li>
+      </ul>
+      <div style="margin-top:1.5rem;background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:10px;padding:1rem">
+        <p style="font-size:0.8rem;color:var(--text2);line-height:1.6"><strong style="color:var(--accent)">Pro Tip:</strong> Don't grind DSA in isolation. Build projects in parallel. DSA gets you the interview. Projects prove you can build real things.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PORTFOLIO > DEGREE -->
+<section class="reveal">
+  <span class="section-tag">// Section 10</span>
+  <h2 class="section-title">Portfolio Beats<br>Degree Every Time</h2>
+  <p class="section-sub">In tech, what you've built matters more than where you studied. A degree opens doors. Projects kick them down.</p>
+
+  <div class="portfolio-row">
+    <div class="port-item">
+      <div class="port-ico">📁</div>
+      <div class="port-name">GitHub Profile</div>
+      <div class="port-tip">Daily commits. Quality repos. README files. This IS your resume in tech.</div>
+    </div>
+    <div class="port-item">
+      <div class="port-ico">🌐</div>
+      <div class="port-name">Portfolio Website</div>
+      <div class="port-tip">Your own site = instant credibility. Show projects, contact, and who you are.</div>
+    </div>
+    <div class="port-item">
+      <div class="port-ico">💼</div>
+      <div class="port-name">LinkedIn</div>
+      <div class="port-tip">Recruiters live here. Complete profile + regular posts = inbound opportunities.</div>
+    </div>
+    <div class="port-item">
+      <div class="port-ico">📄</div>
+      <div class="port-name">Resume</div>
+      <div class="port-tip">One page. Clean format. ATS-optimized. Project links required. No fluff.</div>
+    </div>
+    <div class="port-item">
+      <div class="port-ico">✍️</div>
+      <div class="port-name">Technical Blog</div>
+      <div class="port-tip">Writing about what you learn proves you understand it. Rare = valuable.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NETWORKING -->
+<section class="reveal">
+  <span class="section-tag">// Section 11</span>
+  <h2 class="section-title">Networking is a<br>Career Multiplier</h2>
+  <p class="section-sub">Who you know opens doors that skills alone can't. Build in public, connect genuinely, help others first.</p>
+
+  <div class="network-grid">
+    <div class="net-card">
+      <div class="net-icon">💼</div>
+      <div class="net-name">LinkedIn</div>
+      <div class="net-why">Post your learnings, connect with developers, get noticed by recruiters. 80% of jobs are not posted publicly.</div>
+    </div>
+    <div class="net-card">
+      <div class="net-icon">🐙</div>
+      <div class="net-name">GitHub</div>
+      <div class="net-why">Contribute to projects. Star repos. Follow developers you admire. Be visible in code.</div>
+    </div>
+    <div class="net-card">
+      <div class="net-icon">🐦</div>
+      <div class="net-name">Twitter / X</div>
+      <div class="net-why">Tech Twitter is real. Developers, founders, and CTOs are accessible. Build in public here.</div>
+    </div>
+    <div class="net-card">
+      <div class="net-icon">🗣️</div>
+      <div class="net-name">Communities</div>
+      <div class="net-why">Discord servers, Reddit r/webdev, local meetups. Ask questions. Answer questions. Repeat.</div>
+    </div>
+    <div class="net-card">
+      <div class="net-icon">📹</div>
+      <div class="net-name">YouTube / Content</div>
+      <div class="net-why">Document your journey. People hire creators they've followed. Proof of work at scale.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MISTAKES -->
+<div class="mistakes-bg">
+<section style="max-width:1200px;margin:0 auto;padding:6rem 2rem" class="reveal">
+  <span class="section-tag">// Section 12</span>
+  <h2 class="section-title">Beginner Traps<br><span style="color:#ef4444">That Kill Careers</span></h2>
+  <p class="section-sub">Almost every beginner falls into at least one of these. Recognizing them early saves you months of wasted time.</p>
+
+  <div class="mistakes-grid">
+    <div class="mistake-card">
+      <div class="mistake-icon">📺</div>
+      <div class="mistake-title">Tutorial Hell</div>
+      <div class="mistake-desc">Watching 50 hours of tutorials without writing a single line of code yourself. Watching ≠ Learning.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">🚫</div>
+      <div class="mistake-title">Zero Projects</div>
+      <div class="mistake-desc">Learning theory endlessly without building anything. Projects are proof. No projects = no job.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">🔀</div>
+      <div class="mistake-title">Language Hopping</div>
+      <div class="mistake-desc">Switching between Python, JS, Java, C++ every week. Pick one and go deep for 6 months minimum.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">🗺️</div>
+      <div class="mistake-title">No Roadmap</div>
+      <div class="mistake-desc">Random learning without direction. Just following trending YouTube videos instead of a structured path.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">⏰</div>
+      <div class="mistake-title">No Consistency</div>
+      <div class="mistake-desc">Coding 6 hours Saturday, nothing for 2 weeks. 1 hour every day beats 10 hours once a week.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">🎓</div>
+      <div class="mistake-title">Degree Worship</div>
+      <div class="mistake-desc">Waiting for a CS degree to start applying. Companies hire skills, not certificates.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">🤐</div>
+      <div class="mistake-title">Learning in Silence</div>
+      <div class="mistake-desc">Never posting, never sharing, never asking for help. Build in public from day one.</div>
+    </div>
+    <div class="mistake-card">
+      <div class="mistake-icon">💰</div>
+      <div class="mistake-title">Chasing Salary First</div>
+      <div class="mistake-desc">Choosing AI/ML because "it pays most" when you haven't even learned Python basics yet.</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHAT GETS YOU HIRED -->
+<div id="final"></div>
+<section class="reveal">
+  <span class="section-tag">// Section 13</span>
+  <h2 class="section-title">What Actually<br>Gets You Hired</h2>
+  <p class="section-sub">Not certificates. Not which bootcamp. These four things in combination are what separate hired from not hired.</p>
+
+  <div class="hired-grid">
+    <div class="hired-card">
+      <div class="hired-num">01</div>
+      <div class="hired-title">Skill + Projects</div>
+      <div class="hired-desc">Verifiable, working projects built with real technology. Not tutorial clones. Original ideas, even if simple. 3 solid projects beat 30 half-finished ones.</div>
+    </div>
+    <div class="hired-card">
+      <div class="hired-num">02</div>
+      <div class="hired-title">Proof of Work</div>
+      <div class="hired-desc">GitHub with real commits. A portfolio site. Blog posts. LinkedIn activity. Open source contributions. Let the internet be your resume.</div>
+    </div>
+    <div class="hired-card">
+      <div class="hired-num">03</div>
+      <div class="hired-title">Communication</div>
+      <div class="hired-desc">Can you explain what you built and why? Can you talk through your thinking in an interview? Technical skill without communication is invisible to most companies.</div>
+    </div>
+    <div class="hired-card">
+      <div class="hired-num">04</div>
+      <div class="hired-title">Persistence</div>
+      <div class="hired-desc">Rejection is the job. Most developers apply to 50–200 jobs before their first offer. The ones who get hired are the ones who didn't stop applying.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINAL PATH -->
+<div style="background:var(--bg2)">
+<section style="max-width:1200px;margin:0 auto;padding:6rem 2rem" class="reveal">
+  <span class="section-tag">// Section 14 — The Final Path</span>
+  <h2 class="section-title">Best Beginner Path<br><span style="background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Zero to First Job</span></h2>
+  <p class="section-sub">If you're completely new and don't know where to start — this is the most reliable path to your first tech job.</p>
+
+  <div class="final-path">
+    <div class="final-step">
+      <span class="final-step-num">MONTH 1–2</span>
+      <div class="final-step-icon">🧱</div>
+      <h4>Foundations</h4>
+      <p>Internet basics, how computers work, Git, Command Line. Build the mental model of tech.</p>
+    </div>
+    <div class="final-step">
+      <span class="final-step-num">MONTH 2–4</span>
+      <div class="final-step-icon">💻</div>
+      <h4>Web Dev Basics</h4>
+      <p>HTML, CSS, JavaScript fundamentals. Build 3 static websites. Make them live on GitHub Pages.</p>
+    </div>
+    <div class="final-step">
+      <span class="final-step-num">MONTH 4–6</span>
+      <div class="final-step-icon">⚛️</div>
+      <h4>React + Backend</h4>
+      <p>Learn React for frontend. Node.js + Express for backend. Build a full stack project with a database.</p>
+    </div>
+    <div class="final-step">
+      <span class="final-step-num">MONTH 5–8</span>
+      <div class="final-step-icon">🧩</div>
+      <h4>DSA Practice</h4>
+      <p>Start LeetCode. Easy problems daily. 150+ problems total. Arrays, strings, hash maps first.</p>
+    </div>
+    <div class="final-step">
+      <span class="final-step-num">MONTH 8–12</span>
+      <div class="final-step-icon">🚀</div>
+      <h4>Apply + Network</h4>
+      <p>Portfolio site live. GitHub active. LinkedIn complete. Apply to 10 jobs per day. Don't stop.</p>
+    </div>
+  </div>
+
+  <div class="closing-quote">
+    <p>"Don't choose what pays the most. Choose what you can stay consistent with for the next 5 years. Consistency in the right direction will always beat talent going in circles."</p>
+    <span class="author">— The Only Advice That Matters in Tech</span>
+  </div>
+</section>
+</div>
+
+<footer>
+  <p>Tech Universe — A Complete Beginner's Roadmap &nbsp;·&nbsp; Built with zero fluff, maximum clarity &nbsp;·&nbsp; <span style="color:var(--accent)">Go build something.</span></p>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progressBar').style.transform = `scaleX(${scrolled / total})`;
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// Toggle career paths
+function togglePath(card) {
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.path-card.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+// Animate bar fills when visible
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.animation = 'none';
+        bar.offsetHeight; // reflow
+        bar.style.animation = 'barGrow 1.2s ease both';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.path-body-inner').forEach(el => barObserver.observe(el));
+
+// Subtle parallax on hero orbs
+window.addEventListener('mousemove', (e) => {
+  const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+  const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+  const orb1 = document.querySelector('.hero-orb1');
+  const orb2 = document.querySelector('.hero-orb2');
+  if (orb1) orb1.style.transform = `translate(${x * -30}px, ${y * -20}px)`;
+  if (orb2) orb2.style.transform = `translate(${x * 20}px, ${y * 15}px)`;
+});
+</script>
+</body>
+</html>
